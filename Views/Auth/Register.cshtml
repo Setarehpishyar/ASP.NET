@@ -1,0 +1,56 @@
+﻿@{
+    Layout = "_CleanLayout";
+    ViewData["Title"] = "Create Account - Alpha";
+}
+
+<form class="form">
+<div class="center-screen">
+    <div class="surface temp1">
+       
+        <h2>Create Account</h2>
+
+        <div class="social-signup">
+            <button type="button" class="btn-google">
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google icon" />
+                Sign Up with Google
+            </button>
+
+            <div class="divider">
+                <span>OR</span>
+            </div>
+        </div>
+    
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="John Doe" required />
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="••••••••" required />
+
+            <label for="confirm">Confirm Password</label>
+            <input type="password" id="confirm" name="confirm" placeholder="••••••••" required />
+
+            <div class="checkbox">
+                <input type="checkbox" id="terms" required />
+                <label for="terms">
+                    I accept the <a href="#">Terms & Conditions</a>
+                </label>
+            </div>
+
+            <div class="form-actions">
+                <button class="btn btn-blue" type="submit">Create Account</button>
+            </div>
+
+        </div>
+    </div>
+        </form>
+
+        <p class="login-link">
+            Already have an account? <a asp-controller="Auth" asp-action="Login">Login</a>
+        </p>
+        </<div></div>
+ 
+
+
