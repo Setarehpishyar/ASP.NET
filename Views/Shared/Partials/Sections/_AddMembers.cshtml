@@ -1,0 +1,109 @@
+﻿@using Business.Models;
+@model AddMemberForm
+
+<div class="modal" id="AddMemberModal">
+	<div class="modal-content">
+		<div class="modal-header">
+
+			<h3>New Member</h3>
+			<button type="button" class="btn-close" data-close="true"></button>
+		</div>
+
+		<form novalidate asp-action="AddMember" method="post" enctype="multipart/form-data" asp-controller="Admin">
+			<div class="upload-box3">
+				<div class="upload-circle3" id="uploadTrigger">
+					<i class="fa-solid fa-camera"></i>
+					<img id="MemberImagePreview" class="preview-image3" style="display: none;" />
+				</div>
+
+
+				<input asp-for="MemberImage" type="file" accept="image/*" style="display: none;" />
+			</div>
+			<div class="form-group">
+				<label asp-for="FirstName"></label>
+				<div class="field-group">
+					<input asp-for="FirstName">
+					<span asp-validation-for="FirstName"></span>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label asp-for="LastName"></label>
+				<div class="field-group">
+					<input asp-for="LastName">
+					<span asp-validation-for="LastName"></span>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label asp-for="Email"></label>
+				<div class="field-group">
+					<input asp-for="Email">
+					<span asp-validation-for="Email"></span>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label asp-for="JobTitle"></label>
+				<div class="field-group">
+					<input asp-for="JobTitle">
+					<span asp-validation-for="JobTitle"></span>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label asp-for="Location"></label>
+				<div class="field-group">
+					<input asp-for="Location">
+					<span asp-validation-for="Location"></span>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label asp-for="Phone"></label>
+				<div class="field-group">
+					<input asp-for="Phone">
+					<span asp-validation-for="Phone"></span>
+				</div>
+			</div>
+
+            <div class="form-group">
+                <label asp-for="DateOfBirth"></label>
+                <div class="dob-container">
+                    <div>
+                        <select asp-for="DobDay" class="form-control">
+                            <option value="" selected disabled>Day</option>
+                            @for (int i = 1; i <= 31; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                    </div>
+                    <div>
+                        <select asp-for="DobMonth" class="form-control">
+                            <option value="" selected disabled>Months</option>
+                            @for (int i = 1; i <= 12; i++)
+                            {
+                                <option value="@i">@System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i)</option>
+                            }
+                        </select>
+                    </div>
+                    <div>
+                        <select asp-for="DobYear" class="form-control">
+                            <option value="" selected disabled>Year</option>
+                            @for (int i = DateTime.Now.Year; i >= 1900; i--)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <span asp-validation-for="DobYear" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="create-btn">Add Member</button>
+        </form>
+    </div>
+	</div>

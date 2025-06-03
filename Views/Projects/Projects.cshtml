@@ -1,0 +1,14 @@
+﻿
+@{
+	
+	ViewData["Title"] = "Projects";
+}
+<header class="main-header">
+    <h2>
+        @ViewData["Title"]
+    </h2>
+    <button class="btn btn-blue  btn-blue-add" id="addMemberBtn">+ Add Project</button>
+</header>
+<div class="projects-grid">
+<partial name="Partials/Sections/_ProjectList" />
+</div>
