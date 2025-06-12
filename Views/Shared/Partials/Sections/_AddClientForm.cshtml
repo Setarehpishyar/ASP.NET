@@ -1,0 +1,60 @@
+﻿@using Business.Models;
+@using Data.Entities;
+@model AddClientForm
+
+<div class="modal" id="AddClientModal">
+	<div class="modal-content">
+		<div class="modal-header">
+	
+				<h3>Add Client</h3>
+				<button type="button" class="btn-close" data-close="true"></button>
+				</div>
+		
+		<form novalidate asp-action="Add" method="post" enctype="multipart/form-data" asp-controller="Clients">
+			<div class="upload-box3">
+				<div class="upload-circle3" id="uploadTrigger">
+					<i class="fa-solid fa-camera"></i>
+					<img id="ClientImagePreview" class="preview-image3" style="display: none;" />
+				</div>
+
+			
+				<input asp-for="ClientImage" type="file" accept="image/*" style="display: none;" />
+			</div>
+			<div class="form-group">
+			<label asp-for="ClientName"></label>
+			<div class="field-group">
+				<input asp-for="ClientName">
+				<span asp-validation-for="ClientName"></span>
+			</div>
+	</div>
+
+
+	<div class="form-group">
+			<label asp-for="Email"></label>
+			<div class="field-group">
+					<input asp-for="Email">
+					<span asp-validation-for="Email"></span>
+			</div>
+	</div>
+
+	<div class="form-group">
+			<label asp-for="Location"></label>
+			<div class="field-group">
+				<input asp-for="Location">
+				<span asp-validation-for="Location"></span>
+			</div>
+	</div>
+
+	<div class="form-group">
+			<label asp-for="Phone"></label>
+			<div class="field-group">
+				<input asp-for="Phone">
+				<span asp-validation-for="Phone"></span>
+			</div>
+	</div>
+
+			<button type="submit" class="btn btn-submit btn-blue">Create</button>
+
+			</form>
+			</div>
+			</div>

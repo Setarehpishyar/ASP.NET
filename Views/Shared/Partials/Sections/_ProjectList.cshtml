@@ -1,0 +1,45 @@
+﻿@model List<Business.Models.Project>
+
+@foreach (var project in Model)
+{
+    <div class="project" data-deadline="@project.EndDate.ToString("yyyy-MM-dd")">
+        <div class="project-header">
+            <div class="project-title-block">
+                <img src="@project.ImagePath" class="project-icon preview-image1" />
+                <div class="project-title-text">
+                    <h4>@project.Title</h4>
+                    <p class="company">@project.Company</p>
+                </div>
+            </div>
+            <div class="project-actions">
+                <button class="dropdown-toggle">
+                    <i class="fas fa-ellipsis-v"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item edit-project-btn" data-project-id="@project.Id">
+                        <i class="fas fa-pen"></i> Edit
+                    </a>
+                    <a href="#" class="add-member"><i class="fas fa-user-plus"></i> Add Member</a>
+                    <a href="#" class="danger"><i class="fas fa-trash"></i> Delete Project</a>
+                </div>
+            </div>
+        </div>
+
+        <p class="desc">@project.Description</p>
+
+        <div class="project-meta">
+            <span class="tag gray">
+                @((project.EndDate - project.StartDate).Days / 7) weeks left
+            </span>
+            <div class="avatars">
+                @if (project.AvatarPaths != null)
+                {
+                    foreach (var avatar in project.AvatarPaths)
+                    {
+                        <img src="@avatar" />
+                    }
+                }
+            </div>
+        </div>
+    </div>
+}

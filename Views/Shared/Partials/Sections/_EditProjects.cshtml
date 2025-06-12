@@ -1,0 +1,68 @@
+﻿<div class="modal" id="EditProjectModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Edit Project</h2>
+            <button type="button" class="btn-close" data-close="true" ></button>
+        </div>
+
+        <form id="editForm" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="ProjectId" id="projectId" />
+
+            <div class="upload-box3">
+                <div class="upload-circle3" id="uploadTrigger">
+                    <i class="fa-solid fa-camera"></i>
+                    <img id="EditProjectImagePreview" class="preview-image3" style="display: none;" />
+                </div>
+                <input name="ProjectImage" type="file" accept="image/*" style="display: none;" />
+            </div>
+
+            <div class="form-group">
+                <label>Project Name</label>
+                <input id="editTitle" name="ProjectName" />
+            </div>
+
+            <div class="form-group">
+                <label>Client Name</label>
+                <input id="editCompany" name="ClientName" />
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+                <input id="editDescription" name="Description" />
+            </div>
+
+            <div class="form-group">
+                <label>Members</label>
+                <input id="editMembers" name="Members" />
+            </div>
+
+            <div class="form-group">
+                <label>Start Date</label>
+                <input id="editStartDate" name="StartDate" type="date" />
+            </div>
+
+            <div class="form-group">
+                <label>End Date</label>
+                <input id="editEndDate" name="EndDate" type="date" />
+            </div>
+
+            <div class="form-group">
+                <label>Budget</label>
+                <input id="editBudget" name="Budget" />
+            </div>
+
+            <div class="form-group">
+                <label>Status</label>
+                <select id="editStatus" name="Status">
+                    <option value="InProgress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                    <option value="OnHold">On Hold</option>
+                    <option value="Canceled">Canceled</option>
+                </select>
+            </div>
+
+            <button type="submit" class="create-btn">Save Changes</button>
+        </form>
+    </div>
+</div>
+

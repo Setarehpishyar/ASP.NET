@@ -1,0 +1,42 @@
+﻿@model Business.Models.ProjectsPageViewModel
+@using Data.Entities
+
+@{
+    ViewData["Title"] = "Projects";
+}
+
+<partial name="Partials/Sections/_AddProjects" model="Model.AddProjectForm" />
+<partial name="Partials/Sections/_EditProjects" />
+
+
+<header class="main-header">
+    <h2>@ViewData["Title"]</h2>
+    <button type="button" class="btn btn-blue btn-blue-add" data-modal="true" data-target="#AddProjectModal">+ Add Project</button>
+</header>
+
+<!-- 🔽 فیلترها به صورت تب -->
+<div class="project-filters" style="margin-bottom: 1rem;">
+    <button class="tab-link @(string.IsNullOrEmpty(Model.SelectedStatus) ? "active" : "")"
+            onclick="location.href='?status='">
+        All <span class="count">[@Model.Projects.Count]</span>
+    </button>
+
+    <button class="tab-link @(Model.SelectedStatus == "InProgress" ? "active" : "")"
+            onclick="location.href='?status=InProgress'">
+        Started <span class="count">[@Model.Projects.Count(p => p.Status == ProjectStatus.InProgress)]</span>
+    </button>
+
+    <button class="tab-link @(Model.SelectedStatus == "Completed" ? "active" : "")"
+            onclick="location.href='?status=Completed'">
+        Completed <span class="count">[@Model.Projects.Count(p => p.Status == ProjectStatus.Completed)]</span>
+    </button>
+</div>
+
+
+@if (Model.Projects != null && Model.Projects.Any())
+{
+    <div class="projects-grid">
+        @await Html.PartialAsync("~/Views/Shared/Partials/Sections/_ProjectList.cshtml", Model.Projects)
+    </div>
+}
+

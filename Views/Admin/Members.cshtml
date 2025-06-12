@@ -1,0 +1,25 @@
+﻿@model List<Business.Models.EditMemberForm>
+
+@{
+
+	ViewData["Title"] = "Team Members";
+}
+<partial name="Partials/Sections/_AddMembers" />
+
+<header class="main-header">
+    <h2>
+        @ViewData["Title"]
+    </h2>
+    <button type="button" class="btn btn-blue btn-blue-add" data-modal="true" data-target="#AddMemberModal">+ Add Members</button>
+</header>
+
+<div class="member-grid">
+<partial name="Partials/Sections/_MemberList" model="Model" />
+    
+</div>
+
+       
+
+
+
+
